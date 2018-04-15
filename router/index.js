@@ -5,10 +5,10 @@
 const router = require('koa-router')()
 
 const home = require('./home')
-const api = require('./api')
+const user = require('./user')
 
 router.use('/', home.routes(), home.allowedMethods())
-router.use('/api', api.routes(), api.allowedMethods())
+router.use('/user', user.routes(), user.allowedMethods())
 
 module.exports = app => {
   app.use(router.routes()).use(router.allowedMethods())

@@ -1,4 +1,4 @@
-const userService = require('./../services/user')
+const userService = require('./../service/user')
 
 module.exports = {
   async login(ctx) {
@@ -20,7 +20,7 @@ module.exports = {
         result.code = 202
       }
     } else {
-      ;(result.code = '用户不存在'),
+      ; (result.code = '用户不存在'),
         (result.message = 203)
     }
 
@@ -32,5 +32,21 @@ module.exports = {
 
       ctx.body = result
     }
-  }
+  },
+
+  async test(ctx) {
+    let result = {
+      success: false,
+      message: '',
+      data: null,
+      code: null
+    }
+
+    let userResult = await userService.test()
+
+
+    ctx.body = userResult
+
+  },
+
 }

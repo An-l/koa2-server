@@ -1,4 +1,4 @@
-const dbUtils = require('./../utils/db-util')
+const dbUtils = require('../utils/db-util.js')
 
 const user = {
   /**
@@ -70,6 +70,20 @@ const user = {
       result = null
     }
     return result
+  },
+
+  /**
+   * 根据用户名查找用户信息
+   * @param  {string} userName 用户账号名称
+   * @return {object|null}     查找结果
+   */
+  async showAllUser() {
+    let result = await dbUtils.select('account')
+    if (Array.isArray(result) && result.length > 0) {
+      return result
+    } else {
+      return null
+    }
   }
 }
 
