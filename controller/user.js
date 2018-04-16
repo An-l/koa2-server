@@ -20,8 +20,8 @@ module.exports = {
         result.code = 202
       }
     } else {
-      ; (result.code = '用户不存在'),
-        (result.message = 203)
+      result.code = '用户不存在'
+      result.message = 203
     }
 
     if (formData.source === 'form' && result.success === true) {
@@ -44,9 +44,6 @@ module.exports = {
 
     let userResult = await userService.test()
 
-
     ctx.body = userResult
-
-  },
-
+  }
 }
